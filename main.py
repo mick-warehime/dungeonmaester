@@ -1,1 +1,2 @@
-print "hello world"
+def stupid():
+    return "hello warld"
