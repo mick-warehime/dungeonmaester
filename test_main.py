@@ -1,8 +1,9 @@
 import unittest
+
 import main
 
-class MainTestCase(unittest.TestCase):
 
+class MainTestCase(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -18,4 +19,3 @@ class MainTestCase(unittest.TestCase):
         myname = "abc"
         expected_name = "abc"
         self.assertEqual(expected_name, myname, "expected: %s, actual: %s" % (expected_name, myname))
-
