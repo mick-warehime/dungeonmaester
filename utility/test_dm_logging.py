@@ -1,5 +1,6 @@
 import unittest
-import dm_logging as dmlog
+import dm_logging
+
 
 class MainTestCase(unittest.TestCase):
     def setUp(self):
@@ -8,8 +9,8 @@ class MainTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_dumb(self):
-        myname = "abc"
-        expected_name = "abc"
-        print dmlog.LOGGING_DIRECTORY
-        self.assertEqual(expected_name, myname, "expected: %s, actual: %s" % (expected_name, myname))
+    def test_log(self):
+        logger = dm_logging.getLogger('LOG TEST')
+        logger.error('done doing something')
+        print dm_logging.LOGFILE
+        self.assertEqual(1, 1, "expected: %s, actual: %s" % (1, 1))
