@@ -27,7 +27,7 @@ def logging_filepath_from_date():
 
 LOGFILE = logging_filepath_from_date()
 logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    format='%(asctime)-20s %(name)-20s %(levelname)-10s %(message)s',
                     datefmt='%m-%d-%Y %H:%M',
                     filename=LOGFILE,
                     filemode='w')
