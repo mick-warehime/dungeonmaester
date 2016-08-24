@@ -43,9 +43,9 @@ class MainTestCase(unittest.TestCase):
 
     def test_error_log(self):
         # prints to std out too!
-        error = 'nothing to see here'
+        error = 'ach nein! my files!'
         logger.error(error)
 
         content = (module_name, 'ERROR', error)
-        logged_info = self.log_contains_content(content)
-        self.assertTrue(logged_info, 'info was not logged to file properly')
+        logged_error = self.log_contains_content(content)
+        self.assertTrue(logged_error, 'error was not logged to file properly')
