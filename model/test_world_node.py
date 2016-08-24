@@ -9,4 +9,4 @@ class MainTestCase(unittest.TestCase):
 
     def test_create_NPC(self):
         n = wn.WorldNode(wn.NODE_CLASSIFIERS.NPC)
-        self.assertEqual(n.get_classifier(), wn.NODE_CLASSIFIERS.NPC, 'created NPC successfully')
+        self.assertEqual(n.get_classifier(), wn.NODE_CLASSIFIERS.NPC, 'did not create NPC successfully')
