@@ -41,3 +41,10 @@ class GraphTest(unittest.TestCase):
         self.assertRaises(TypeError, graph.Edge, graph.Node(), None, 0)
         self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), None)
         self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), 0, is_directed=3)
+
+    def test_edge_correct_description(self):
+        edge = self._basic_edge()
+        expected = " contains "
+        actual = edge.get_description()
+
+        self.assertEqual(expected, actual)
