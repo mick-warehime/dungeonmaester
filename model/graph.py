@@ -1,6 +1,8 @@
 # coding=utf-8
 """ Module for graph representing the game world."""
 
+import enum
+
 
 class Node(object):
     """
@@ -13,14 +15,12 @@ class Node(object):
     """
 
     def __init__(self, description=None, edge_list=None):
-        self.description = None
-        self.edge_list = None
+        self._description = None
+        self._edge_list = None
 
 
 class Edge(object):
-    CAT_PARENT_CHILD = 0
-    CAT_KNOWS = 1
-    CAT_HATES = 2
+    CATEGORIES = enum.enum(PARENT_CHILD=0, KNOWS=1, HATES=2)
 
     def __init__(self, first_node, second_node, category, is_directed=False):
         self._first_node = first_node
