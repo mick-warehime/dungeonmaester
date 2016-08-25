@@ -15,7 +15,7 @@ class Edge(object):
         self._is_directed = is_directed
 
     def is_directed(self):
-        return self.is_directed
+        return self._is_directed
 
     def get_nodes(self):
         return self._first_node, self._second_node
