@@ -12,10 +12,17 @@ class GraphTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_edge_is_directed_default_false(self):
-        edge = graph.Edge(None, None, None)
+    def _basic_edge(self):
 
-        self.assertTrue(not edge.is_directed(), "Expected False, got %s" % str(edge.is_directed()))
+        node_1 = graph.Node()
+        node_2 = graph.Node()
+
+        return graph.Edge(node_1,node_2,graph.Edge.CATEGORIES.PARENT_CHILD)
+
+    def test_edge_is_directed_default_false(self):
+        edge = self._basic_edge()
+
+        self.assertFalse(edge.is_directed(), "Expected False, got %s" % str(edge.is_directed()))
 
     def test_edge_returns_nodes(self):
         node_1 = graph.Node()
