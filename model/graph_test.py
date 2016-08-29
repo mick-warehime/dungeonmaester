@@ -48,3 +48,8 @@ class GraphTest(unittest.TestCase):
         actual = edge.get_description()
 
         self.assertEqual(expected, actual)
+
+    def test_node_str_consistent_hash(self):
+
+        node = graph.Node('dwarf')
+        print node

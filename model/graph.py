@@ -18,6 +18,9 @@ class Node(object):
         self._description = None
         self._edge_list = None
 
+    def __str__(self):
+        return "%s (%s)" %(str(self._description), hash(self))
+
 
 class Edge(object):
     """
