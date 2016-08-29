@@ -2,9 +2,6 @@ import xml.etree.ElementTree as etree
 from collections import defaultdict
 import random
 
-import numpy as np
-
-# update this to take to be init_nodes(root) to make it testable
 
 class database():
     NODES_FILES = ['data/beastiary.xml', 'data/items.xml']
@@ -43,12 +40,12 @@ class database():
             else:
                 self.add_edge(edge_type, *nodes)
 
-    def add_edge(self, edge_type, first_node, second_node = None):
+    def add_edge(self, edge_type, first_node, second_node=None):
         self.add_directed_edge(edge_type, first_node, second_node)
         if second_node:
             self.add_directed_edge(edge_type, second_node, first_node)
 
-    def add_directed_edge(self, edge_type, first_node, second_node = None):
+    def add_directed_edge(self, edge_type, first_node, second_node=None):
         if second_node in self.edge_dict[first_node]:
             self.edge_dict[first_node][second_node].append(edge_type)
         else:
