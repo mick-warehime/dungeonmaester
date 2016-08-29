@@ -57,14 +57,14 @@ class database():
     def get_node_types(self):
         return list(self.node_dict.iterkeys())
 
-    def get_category_types(self, category):
+    def get_nodes_with_category(self, category):
         return self.node_dict[category]
 
-    def get_edges(self):
+    def get_edge_types(self):
         return list(self.edge_dict.iterkeys())
 
-    def get_edges_with_type(self, type):
-        return self.edge_dict[type]
+    def get_edges_with_category(self, category):
+        return self.edge_dict[category]
 
     def random_node(self):
         return random.choice(self.get_nodes())
