@@ -24,13 +24,23 @@ class Edge(object):
     Represents a relationship between two objects (nodes) in the game world.
 
     It should have a description, as well as information about what nodes it relates. The edge can be directed.
-    There should be a method that spits out a string describing the relationship.
+    There should be a method that spits out a string describing the relationship....
     """
 
     CATEGORIES = enum.enum(PARENT_CHILD=0, KNOWS=1, HATES=2)
 
     def __init__(self, first_node, second_node, category, is_directed=False):
         # type: (Node, Node, int, bool) -> object
+
+        if not isinstance(first_node, Node):
+            raise (TypeError("Expected Node input, got input type %s\n" % (str(type(first_node)))))
+        if not isinstance(second_node, Node):
+            raise (TypeError("Expected Node input, got input type %s\n" % (str(type(second_node)))))
+        if not isinstance(category, int):
+            raise (TypeError("Expected int input, got input type %s\n" % (str(type(category)))))
+        if not isinstance(is_directed, bool):
+            raise (TypeError("Expected bool input, got input type %s\n" % (str(type(is_directed)))))
+
         self._first_node = first_node
         self._second_node = second_node
         self._category = category

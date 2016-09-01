@@ -13,11 +13,10 @@ class GraphTest(unittest.TestCase):
         pass
 
     def _basic_edge(self):
-
         node_1 = graph.Node()
         node_2 = graph.Node()
 
-        return graph.Edge(node_1,node_2,graph.Edge.CATEGORIES.PARENT_CHILD)
+        return graph.Edge(node_1, node_2, graph.Edge.CATEGORIES.PARENT_CHILD)
 
     def test_edge_is_directed_default_false(self):
         edge = self._basic_edge()
@@ -28,7 +27,7 @@ class GraphTest(unittest.TestCase):
         node_1 = graph.Node()
         node_2 = graph.Node()
 
-        edge = graph.Edge(node_1, node_2, None)
+        edge = graph.Edge(node_1, node_2, graph.Edge.CATEGORIES.PARENT_CHILD)
 
         actual_left, actual_right = edge.get_nodes()
         expected_left = node_1
@@ -36,3 +35,9 @@ class GraphTest(unittest.TestCase):
 
         self.assertEqual(expected_left, actual_left, "Expected %s, got %s" % (str(expected_left), str(actual_left)))
         self.assertEqual(expected_right, actual_right, "Expected %s, got %s" % (str(expected_right), str(actual_right)))
+
+    def test_edge_wrong_input_types_throw_exception(self):
+        self.assertRaises(TypeError, graph.Edge, None, graph.Node(), 0)
+        self.assertRaises(TypeError, graph.Edge, graph.Node(), None, 0)
+        self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), None)
+        self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), 0, is_directed=3)
