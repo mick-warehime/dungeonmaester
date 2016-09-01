@@ -21,7 +21,7 @@ class GraphTest(unittest.TestCase):
     def test_edge_is_directed_default_false(self):
         edge = graph.Edge(graph.Node(), graph.Node(), graph.Edge.CATEGORIES.PARENT_CHILD)
 
-        self.assertTrue(not edge.is_directed(), "Expected False, got %s" % str(edge.is_directed()))
+        self.assertFalse(edge.is_directed(), "Expected False, got %s" % str(edge.is_directed()))
 
     def test_edge_returns_nodes(self):
         node_1 = graph.Node()
