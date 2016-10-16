@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5">
+    <edge>    
+        <type>has</type>
+        <node>humanoid</node>
+        <node>item</node>
+        <directed />
+    </edge>
+    <edge>    
+        <type>perk</type>
+        <node>humanoid</node>
+    </edge>
+    <edge>    
+        <type>quirk</type>    
+        <node>humanoid</node>    
+    </edge>
+    <edge>
+        <!-- hate, love, competition, sibling, parent, extended family, devotion, spouse -->
+        <type>relationship</type> 
+        <node>humanoid</node>
+        <node>humanoid</node>
+    </edge>
+    <edge>    
+        <!-- floor, ground, wall, chest, hole, tree stump, hidden -->
+        <type>has</type>
+        <node>container</node>
+        <node>item</node>
+        <directed />
+    </edge>
+</compendium>
