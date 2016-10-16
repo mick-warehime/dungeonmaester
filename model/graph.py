@@ -28,6 +28,9 @@ class Edge(object):
     """
 
     CATEGORIES = enum.enum(PARENT_CHILD=0, KNOWS=1, HATES=2)
+    _descriptions = {CATEGORIES.PARENT_CHILD: " contains ",
+                     CATEGORIES.KNOWS: " knows of ",
+                     CATEGORIES.HATES: " hates "}
 
     def __init__(self, first_node, second_node, category, is_directed=False):
         # type: (Node, Node, int, bool) -> object
@@ -54,3 +57,6 @@ class Edge(object):
 
     def get_category(self):
         return self._category
+
+    def get_description(self):
+        return Edge._descriptions[self._category]

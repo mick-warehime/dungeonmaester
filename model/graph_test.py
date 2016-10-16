@@ -16,10 +16,10 @@ class GraphTest(unittest.TestCase):
         node_1 = graph.Node()
         node_2 = graph.Node()
 
-        return graph.Edge(node_1, node_2, graph.Edge.CATEGORIES.PARENT_CHILD)
+        return graph.Edge(node_1, node_2, graph.Edge.CATEGORIES.PARENT_CHILD, is_directed=True)
 
     def test_edge_is_directed_default_false(self):
-        edge = self._basic_edge()
+        edge = graph.Edge(graph.Node(), graph.Node(), graph.Edge.CATEGORIES.PARENT_CHILD)
 
         self.assertFalse(edge.is_directed(), "Expected False, got %s" % str(edge.is_directed()))
 
@@ -41,3 +41,10 @@ class GraphTest(unittest.TestCase):
         self.assertRaises(TypeError, graph.Edge, graph.Node(), None, 0)
         self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), None)
         self.assertRaises(TypeError, graph.Edge, graph.Node(), graph.Node(), 0, is_directed=3)
+
+    def test_edge_correct_description(self):
+        edge = self._basic_edge()
+        expected = " contains "
+        actual = edge.get_description()
+
+        self.assertEqual(expected, actual)
